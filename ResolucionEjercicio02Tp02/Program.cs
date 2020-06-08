@@ -14,6 +14,8 @@ namespace ResolucionEjercicio02Tp02
                 {
                     string signoDelZodiaco = InformarSignoZodiaco(fechaNacimiento.Day, fechaNacimiento.Month);
                     Console.WriteLine($"Por haber nacido el día {fechaNacimiento.ToShortDateString()} le corresponde el signo de {signoDelZodiaco}");
+                    string signoHoroscopoChino = InformarSignoHoroscopoChino(fechaNacimiento.Year);
+                    Console.WriteLine($"Y por haber nacido en el año {fechaNacimiento.Year} le corresponde el signo de {signoHoroscopoChino} en el Horóscopo Chino");
                 }
                 else
                 {
@@ -24,6 +26,53 @@ namespace ResolucionEjercicio02Tp02
             {
                 Console.WriteLine("Fecha mal ingresada");
             }
+        }
+
+        private static string InformarSignoHoroscopoChino(int anio)
+        {
+            var resto = anio % 12;
+            var signoHoroscopoChino = "";
+            switch (resto)
+            {
+                case 0:
+                    signoHoroscopoChino = "Mono";
+                    break;
+                case 1:
+                    signoHoroscopoChino = "Gallo";
+                    break;
+                case 2:
+                    signoHoroscopoChino = "Perro";
+                    break;
+                case 3:
+                    signoHoroscopoChino = "Cerdo";
+                    break;
+                case 4:
+                    signoHoroscopoChino = "Rata";
+                    break;
+                case 5:
+                    signoHoroscopoChino = "Buey";
+                    break;
+                case 6:
+                    signoHoroscopoChino = "Tigre";
+                    break;
+                case 7:
+                    signoHoroscopoChino = "Conejo";
+                    break;
+                case 8:
+                    signoHoroscopoChino = "Dragón";
+                    break;
+                case 9:
+                    signoHoroscopoChino = "Serpiente";
+                    break;
+                case 10:
+                    signoHoroscopoChino = "Caballo";
+                    break;
+                default:
+                    signoHoroscopoChino = "Cabra";
+                    break;
+
+            }
+            return signoHoroscopoChino;
         }
 
         private static string InformarSignoZodiaco(int dia, int mes)
